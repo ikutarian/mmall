@@ -17,3 +17,20 @@
 9. [MySQL基础](https://www.imooc.com/learn/122)
 
 
+## 包结构
+
+MVC
+
+* pojo
+* dao
+* service
+* controller
+* vo
+
+工具
+
+* util
+
+常量、全局异常
+
+* common
