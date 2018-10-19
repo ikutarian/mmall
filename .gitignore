@@ -1,0 +1,23 @@
+# package file
+*.war
+
+# Maven #
+target/
+
+# IDEA #
+.idea/
+*.iml
+
+# Eclipse #
+.settings/
+.metadata/
+.classpath
+.project
+Servers/
+
+# temp file
+*.log
+
+# OSX
+.DS_Store
+Thumbs.db
