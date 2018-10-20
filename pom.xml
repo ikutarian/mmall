@@ -80,7 +80,6 @@
             <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
         <!-- dbcp -->
         <dependency>
             <groupId>commons-dbcp</groupId>
