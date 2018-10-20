@@ -21,3 +21,6 @@ Servers/
 # OSX
 .DS_Store
 Thumbs.db
+
+# Mybatis-generator
+mybatis-generator/src/

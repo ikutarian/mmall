@@ -60,7 +60,7 @@
             <artifactId>commons-collections4</artifactId>
             <version>4.2</version>
         </dependency>
-        <!-- commons-io -->
+        <!-- apache commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -71,6 +71,8 @@
     <build>
         <pluginManagement>
             <plugins>
+
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
