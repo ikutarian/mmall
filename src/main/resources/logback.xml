@@ -1,8 +1,8 @@
 <configuration>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <encoding>UTF-8</encoding>
         <encoder>
+            <charset>UTF-8</charset>
             <!--<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
             <pattern>[%d{HH:mm:ss.SSS}][%p][%c{40}][%t] %m%n</pattern>
         </encoder>
