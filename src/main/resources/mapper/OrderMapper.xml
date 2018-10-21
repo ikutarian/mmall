@@ -9,7 +9,7 @@
     <result column="payment" jdbcType="DECIMAL" property="payment" />
     <result column="payment_type" jdbcType="INTEGER" property="paymentType" />
     <result column="postage" jdbcType="INTEGER" property="postage" />
-    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="code" jdbcType="INTEGER" property="code" />
     <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
     <result column="send_time" jdbcType="TIMESTAMP" property="sendTime" />
     <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
@@ -18,7 +18,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, order_no, user_id, shipping_id, payment, payment_type, postage, status, payment_time, 
+    id, order_no, user_id, shipping_id, payment, payment_type, postage, code, payment_time,
     send_time, end_time, close_time, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -34,12 +34,12 @@
   <insert id="insert" parameterType="com.ikutarian.mmall.pojo.Order">
     insert into mmall_order (id, order_no, user_id, 
       shipping_id, payment, payment_type, 
-      postage, status, payment_time, 
+      postage, code, payment_time,
       send_time, end_time, close_time, 
       create_time, update_time)
     values (#{id,jdbcType=INTEGER}, #{orderNo,jdbcType=BIGINT}, #{userId,jdbcType=INTEGER}, 
       #{shippingId,jdbcType=INTEGER}, #{payment,jdbcType=DECIMAL}, #{paymentType,jdbcType=INTEGER}, 
-      #{postage,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{paymentTime,jdbcType=TIMESTAMP}, 
+      #{postage,jdbcType=INTEGER}, #{code,jdbcType=INTEGER}, #{paymentTime,jdbcType=TIMESTAMP},
       #{sendTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{closeTime,jdbcType=TIMESTAMP}, 
       now(), now())
   </insert>
@@ -67,8 +67,8 @@
       <if test="postage != null">
         postage,
       </if>
-      <if test="status != null">
-        status,
+      <if test="code != null">
+        code,
       </if>
       <if test="paymentTime != null">
         payment_time,
@@ -111,8 +111,8 @@
       <if test="postage != null">
         #{postage,jdbcType=INTEGER},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=INTEGER},
+      <if test="code != null">
+        #{code,jdbcType=INTEGER},
       </if>
       <if test="paymentTime != null">
         #{paymentTime,jdbcType=TIMESTAMP},
@@ -155,8 +155,8 @@
       <if test="postage != null">
         postage = #{postage,jdbcType=INTEGER},
       </if>
-      <if test="status != null">
-        status = #{status,jdbcType=INTEGER},
+      <if test="code != null">
+        code = #{code,jdbcType=INTEGER},
       </if>
       <if test="paymentTime != null">
         payment_time = #{paymentTime,jdbcType=TIMESTAMP},
@@ -187,7 +187,7 @@
       payment = #{payment,jdbcType=DECIMAL},
       payment_type = #{paymentType,jdbcType=INTEGER},
       postage = #{postage,jdbcType=INTEGER},
-      status = #{status,jdbcType=INTEGER},
+      code = #{code,jdbcType=INTEGER},
       payment_time = #{paymentTime,jdbcType=TIMESTAMP},
       send_time = #{sendTime,jdbcType=TIMESTAMP},
       end_time = #{endTime,jdbcType=TIMESTAMP},

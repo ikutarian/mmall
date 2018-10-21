@@ -5,13 +5,13 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="parent_id" jdbcType="INTEGER" property="parentId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="status" jdbcType="BIT" property="status" />
+    <result column="code" jdbcType="BIT" property="code" />
     <result column="sort_order" jdbcType="INTEGER" property="sortOrder" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, parent_id, name, status, sort_order, create_time, update_time
+    id, parent_id, name, code, sort_order, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -25,10 +25,10 @@
   </delete>
   <insert id="insert" parameterType="com.ikutarian.mmall.pojo.Category">
     insert into mmall_category (id, parent_id, name, 
-      status, sort_order, create_time, 
+      code, sort_order, create_time,
       update_time)
     values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{status,jdbcType=BIT}, #{sortOrder,jdbcType=INTEGER}, now(),
+      #{code,jdbcType=BIT}, #{sortOrder,jdbcType=INTEGER}, now(),
       now())
   </insert>
   <insert id="insertSelective" parameterType="com.ikutarian.mmall.pojo.Category">
@@ -43,8 +43,8 @@
       <if test="name != null">
         name,
       </if>
-      <if test="status != null">
-        status,
+      <if test="code != null">
+        code,
       </if>
       <if test="sortOrder != null">
         sort_order,
@@ -66,8 +66,8 @@
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=BIT},
+      <if test="code != null">
+        #{code,jdbcType=BIT},
       </if>
       <if test="sortOrder != null">
         #{sortOrder,jdbcType=INTEGER},
@@ -89,8 +89,8 @@
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
-        status = #{status,jdbcType=BIT},
+      <if test="code != null">
+        code = #{code,jdbcType=BIT},
       </if>
       <if test="sortOrder != null">
         sort_order = #{sortOrder,jdbcType=INTEGER},
@@ -108,7 +108,7 @@
     update mmall_category
     set parent_id = #{parentId,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},
-      status = #{status,jdbcType=BIT},
+      code = #{code,jdbcType=BIT},
       sort_order = #{sortOrder,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = now()
