@@ -16,6 +16,16 @@
 8. [Maven基础](https://www.imooc.com/learn/443)
 9. [MySQL基础](https://www.imooc.com/learn/122)
 
+## Spring官方demo
+
+- https://github.com/spring-projects/spring-mvc-showcase
+- https://github.com/spring-projects/spring-petclinic
+- https://github.com/spring-projects/greenhouse
+- https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples
+
+## wiki
+
+https://gitee.com/imooccode/happymmallwiki/wikis/Home
 
 ## 包结构
 
@@ -77,4 +87,4 @@ MVC
 ```
 
 https://www.jianshu.com/p/97f1d52210ab
-https://gitee.com/imooccode/happymmallwiki/wikis/Home
+
