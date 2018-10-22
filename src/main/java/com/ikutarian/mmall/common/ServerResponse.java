@@ -39,7 +39,7 @@ public class ServerResponse {
         return new ServerResponse(responseCode.getCode(), responseCode.getMessage(), null);
     }
 
-    // 这里不添加访问修饰符，默认最多只能同一个包下的类能调用这个方法
+    // 这里不添加访问修饰符，默认最多只能同一个包下的类能调用这个方法，提供给全局异常处理器调用
     static ServerResponse createByError(int code, String message) {
         return new ServerResponse(code, message, null);
     }

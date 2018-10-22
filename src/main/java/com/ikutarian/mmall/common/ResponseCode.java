@@ -2,11 +2,12 @@ package com.ikutarian.mmall.common;
 
 public enum ResponseCode {
 
+    // 通用的错误码
     SUCCESS(0, "success"),
-    ERROR(-1, "error"),
-
-    NEED_LOGIN(10, "未登录"),
+    SERVER_ERROR(1, "服务端异常"),
     ILLEGAL_ARGUMENT(2, "参数不合法"),
+
+    // 登录
     USER_NOT_EXIST(10000, "用户不存在"),
     PASSWORD_INVALID(10001, "密码错误");
 

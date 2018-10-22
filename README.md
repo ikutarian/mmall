@@ -21,11 +21,11 @@
 
 MVC
 
-* pojo
-* dao
-* service
-* controller
-* vo
+* pojo - 数据库表的映射
+* dao - 数据访问对象
+* service - 业务逻辑层
+* controller - 控制器层
+* vo - 视图对象
 
 工具
 
@@ -77,3 +77,4 @@ MVC
 ```
 
 https://www.jianshu.com/p/97f1d52210ab
+https://gitee.com/imooccode/happymmallwiki/wikis/Home

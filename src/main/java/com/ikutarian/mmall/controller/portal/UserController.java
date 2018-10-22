@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
+/**
+ * 用户模块
+ */
 @Controller
 @RequestMapping("user")
 public class UserController {
