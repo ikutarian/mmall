@@ -24,3 +24,6 @@ Thumbs.db
 
 # Mybatis-generator
 mybatis-generator/src/
+
+# VSCode
+.vscode
