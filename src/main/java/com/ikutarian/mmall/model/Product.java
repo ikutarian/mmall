@@ -1,4 +1,4 @@
-package com.ikutarian.mmall.pojo;
+package com.ikutarian.mmall.model;
 
 import java.math.BigDecimal;
 import java.util.Date;

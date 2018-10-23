@@ -1,6 +1,6 @@
 package com.ikutarian.mmall.dao;
 
-import com.ikutarian.mmall.pojo.Product;
+import com.ikutarian.mmall.model.Product;
 
 public interface ProductMapper {
     int deleteByPrimaryKey(Integer id);

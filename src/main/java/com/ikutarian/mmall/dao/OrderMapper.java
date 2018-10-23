@@ -1,6 +1,6 @@
 package com.ikutarian.mmall.dao;
 
-import com.ikutarian.mmall.pojo.Order;
+import com.ikutarian.mmall.model.Order;
 
 public interface OrderMapper {
     int deleteByPrimaryKey(Integer id);

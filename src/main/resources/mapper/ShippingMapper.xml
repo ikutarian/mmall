@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ikutarian.mmall.dao.ShippingMapper">
-  <resultMap id="BaseResultMap" type="com.ikutarian.mmall.pojo.Shipping">
+  <resultMap id="BaseResultMap" type="com.ikutarian.mmall.model.Shipping">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -27,7 +27,7 @@
     delete from mmall_shipping
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.ikutarian.mmall.pojo.Shipping">
+  <insert id="insert" parameterType="com.ikutarian.mmall.model.Shipping">
     insert into mmall_shipping (id, user_id, name, 
       mobile, province, city, 
       district, address, zip, 
@@ -37,7 +37,7 @@
       #{district,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{zip,jdbcType=VARCHAR}, 
       now(), now())
   </insert>
-  <insert id="insertSelective" parameterType="com.ikutarian.mmall.pojo.Shipping">
+  <insert id="insertSelective" parameterType="com.ikutarian.mmall.model.Shipping">
     insert into mmall_shipping
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -110,7 +110,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ikutarian.mmall.pojo.Shipping">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ikutarian.mmall.model.Shipping">
     update mmall_shipping
     <set>
       <if test="userId != null">
@@ -146,7 +146,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ikutarian.mmall.pojo.Shipping">
+  <update id="updateByPrimaryKey" parameterType="com.ikutarian.mmall.model.Shipping">
     update mmall_shipping
     set user_id = #{userId,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},

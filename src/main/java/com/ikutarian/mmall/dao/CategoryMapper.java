@@ -1,6 +1,6 @@
 package com.ikutarian.mmall.dao;
 
-import com.ikutarian.mmall.pojo.Category;
+import com.ikutarian.mmall.model.Category;
 
 public interface CategoryMapper {
     int deleteByPrimaryKey(Integer id);

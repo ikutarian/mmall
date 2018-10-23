@@ -1,16 +1,12 @@
-package com.ikutarian.mmall.pojo;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package com.ikutarian.mmall.vo;
 
 import java.util.Date;
 
-public class User {
+public class UserVo {
+
     private Integer id;
 
     private String username;
-
-    @JsonIgnore
-    private String password;
 
     private String email;
 
@@ -39,15 +35,7 @@ public class User {
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+        this.username = username;
     }
 
     public String getEmail() {
@@ -55,7 +43,7 @@ public class User {
     }
 
     public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
+        this.email = email;
     }
 
     public String getPhone() {
@@ -63,7 +51,7 @@ public class User {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+        this.phone = phone;
     }
 
     public String getQuestion() {
@@ -71,7 +59,7 @@ public class User {
     }
 
     public void setQuestion(String question) {
-        this.question = question == null ? null : question.trim();
+        this.question = question;
     }
 
     public String getAnswer() {
@@ -79,7 +67,7 @@ public class User {
     }
 
     public void setAnswer(String answer) {
-        this.answer = answer == null ? null : answer.trim();
+        this.answer = answer;
     }
 
     public Integer getRole() {

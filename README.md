@@ -31,11 +31,12 @@ https://gitee.com/imooccode/happymmallwiki/wikis/Home
 
 MVC
 
-* pojo - 数据库表的映射
+* model - 数据库表的映射
 * dao - 数据访问对象
 * service - 业务逻辑层
 * controller - 控制器层
 * vo - 视图对象
+* form - 表单
 
 工具
 
@@ -44,6 +45,10 @@ MVC
 常量、全局异常
 
 * common
+
+配置
+
+* config
 
 ## 用户模块
 

@@ -1,6 +1,6 @@
 package com.ikutarian.mmall.dao;
 
-import com.ikutarian.mmall.pojo.Cart;
+import com.ikutarian.mmall.model.Cart;
 
 public interface CartMapper {
     int deleteByPrimaryKey(Integer id);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ikutarian.mmall.dao.CartMapper">
-  <resultMap id="BaseResultMap" type="com.ikutarian.mmall.pojo.Cart">
+  <resultMap id="BaseResultMap" type="com.ikutarian.mmall.model.Cart">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="product_id" jdbcType="INTEGER" property="productId" />
@@ -23,7 +23,7 @@
     delete from mmall_cart
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.ikutarian.mmall.pojo.Cart">
+  <insert id="insert" parameterType="com.ikutarian.mmall.model.Cart">
     insert into mmall_cart (id, user_id, product_id, 
       quantity, checked, create_time, 
       update_time)
@@ -31,7 +31,7 @@
       #{quantity,jdbcType=INTEGER}, #{checked,jdbcType=BIT}, now(),
       now())
   </insert>
-  <insert id="insertSelective" parameterType="com.ikutarian.mmall.pojo.Cart">
+  <insert id="insertSelective" parameterType="com.ikutarian.mmall.model.Cart">
     insert into mmall_cart
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ikutarian.mmall.pojo.Cart">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ikutarian.mmall.model.Cart">
     update mmall_cart
     <set>
       <if test="userId != null">
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ikutarian.mmall.pojo.Cart">
+  <update id="updateByPrimaryKey" parameterType="com.ikutarian.mmall.model.Cart">
     update mmall_cart
     set user_id = #{userId,jdbcType=INTEGER},
       product_id = #{productId,jdbcType=INTEGER},

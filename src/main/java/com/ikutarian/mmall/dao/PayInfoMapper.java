@@ -1,6 +1,6 @@
 package com.ikutarian.mmall.dao;
 
-import com.ikutarian.mmall.pojo.PayInfo;
+import com.ikutarian.mmall.model.PayInfo;
 
 public interface PayInfoMapper {
     int deleteByPrimaryKey(Integer id);

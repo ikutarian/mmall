@@ -1,6 +1,6 @@
 package com.ikutarian.mmall.dao;
 
-import com.ikutarian.mmall.pojo.Shipping;
+import com.ikutarian.mmall.model.Shipping;
 
 public interface ShippingMapper {
     int deleteByPrimaryKey(Integer id);

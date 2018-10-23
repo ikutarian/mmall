@@ -31,7 +31,15 @@ public class ServerResponse {
         return code == ResponseCode.SUCCESS.getCode();
     }
 
-    public static  ServerResponse createBySuccess(String message, Object data) {
+    public static ServerResponse createBySuccessMsg(String message) {
+        return new ServerResponse(ResponseCode.SUCCESS.getCode(), message, null);
+    }
+
+    public static ServerResponse createBySuccessData(Object data) {
+        return new ServerResponse(ResponseCode.SUCCESS.getCode(), null, data);
+    }
+
+    public static  ServerResponse createBySuccessMsgData(String message, Object data) {
         return new ServerResponse(ResponseCode.SUCCESS.getCode(), message, data);
     }
 
