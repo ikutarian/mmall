@@ -31,6 +31,10 @@ public class ServerResponse {
         return code == ResponseCode.SUCCESS.getCode();
     }
 
+    public static ServerResponse createBySuccessMsg() {
+        return new ServerResponse(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMessage(), null);
+    }
+
     public static ServerResponse createBySuccessMsg(String message) {
         return new ServerResponse(ResponseCode.SUCCESS.getCode(), message, null);
     }

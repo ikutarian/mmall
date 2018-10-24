@@ -35,7 +35,17 @@ public class Const {
         public static final String PHONE = "phone";
     }
 
+    /**
+     * Token的相关常量
+     */
     public static final class Token {
         public static final String FORGET_PASSWORD = "token_";
+    }
+
+    /**
+     * 商品分类
+     */
+    public static final class Category {
+        public static final String ROOT_CATEGORY_ID = "0";
     }
 }

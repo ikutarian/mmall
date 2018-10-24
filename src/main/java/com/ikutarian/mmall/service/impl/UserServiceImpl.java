@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpSession;
 import java.util.UUID;
 
-@Service("UserService")
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
     // TODO effect != 0 时进行事务回滚
@@ -266,6 +266,15 @@ public class UserServiceImpl implements UserService {
 
         UserVo userVo = new UserVo();
         BeanUtils.copyProperties(user, userVo);
-        return ServerResponse.createBySuccessMsgData("更新个人信息成功", userVo);
+        return ServerResponse.createBySuccessMsgData("获取个人信息成功", userVo);
+    }
+
+    public ServerResponse checkAdminRole(Integer userId) {
+        User user = userMapper.selectByPrimaryKey(userId);
+
+        if (user != null && user.getRole() == Const.Role.ADMIN) {
+            return ServerResponse.createBySuccessMsg();
+        }
+        return ServerResponse.createByError(ResponseCode.INVALID_ROLE);
     }
 }

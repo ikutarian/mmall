@@ -7,6 +7,7 @@ public enum ResponseCode {
     SERVER_ERROR(1, "服务端异常"),
     ILLEGAL_ARGUMENT(2, "参数不合法"),
     VALUE_CONFLICT(3, "校验失败，存在重名字段"),
+    INVALID_ROLE(4, "用户角色不合法"),
 
     // 登录
     USER_NOT_EXIST(10000, "用户不存在"),
@@ -22,7 +23,10 @@ public enum ResponseCode {
     RESET_PASSWORD_FAIL(10010, "修改密码失败"),
     INVALID_OLD_PASSWORD(10011, "旧密码错误"),
     UPDATE_INFORMATION_FAIL(10012, "更新个人信息失败"),
-    LOGIN_SHOULD_BE_ADMIN(10013, "不是管理员，无法登陆");
+    LOGIN_SHOULD_BE_ADMIN(10013, "不是管理员，无法登陆"),
+
+    ADD_CATEGORY_FAILURE(20000, "添加商品分类失败"),
+    UPDATE_CATEGORY_FAILURE(20001, "更新商品分类失败");
 
     private int code;
     private String message;

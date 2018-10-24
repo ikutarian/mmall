@@ -62,4 +62,9 @@ public interface UserService {
      * 登陆状态下获取用户信息
      */
     ServerResponse getInformation(HttpSession session);
+
+    /**
+     * 校验是否时管理员
+     */
+    ServerResponse checkAdminRole(Integer user);
 }
