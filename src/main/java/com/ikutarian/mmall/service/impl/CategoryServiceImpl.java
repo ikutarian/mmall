@@ -34,6 +34,9 @@ public class CategoryServiceImpl implements CategoryService {
             return ServerResponse.createByError(ResponseCode.ILLEGAL_ARGUMENT);
         }
 
+
+        // TODO 节点名称不能重复
+
         Category category = new Category();
         category.setName(categoryName);
         category.setParentId(parentId);

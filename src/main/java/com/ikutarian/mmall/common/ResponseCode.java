@@ -26,7 +26,14 @@ public enum ResponseCode {
     LOGIN_SHOULD_BE_ADMIN(10013, "不是管理员，无法登陆"),
 
     ADD_CATEGORY_FAILURE(20000, "添加商品分类失败"),
-    UPDATE_CATEGORY_FAILURE(20001, "更新商品分类失败");
+    UPDATE_CATEGORY_FAILURE(20001, "更新商品分类失败"),
+    UPDATE_PRODUCT_FAILURE(20003, "更新商品失败"),
+    INSERT_PRODUCT_FAILURE(20004, "新增产品失败"),
+    UPDATE_PRODUCT_STATUS_FAILURE(20005, "修改产品销售状态失败"),
+    PRODUCT_NOT_EXISTS(20006, "商品不存在"),
+    PRODUCT_NOT_ON_SALE(20007, "商品已下架"),
+
+    UPLOAD_IMG_FILE_FAIL(30000, "图片上传失败");
 
     private int code;
     private String message;
