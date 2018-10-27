@@ -33,7 +33,12 @@ public enum ResponseCode {
     PRODUCT_NOT_EXISTS(20006, "商品不存在"),
     PRODUCT_NOT_ON_SALE(20007, "商品已下架"),
 
-    UPLOAD_IMG_FILE_FAIL(30000, "图片上传失败");
+    UPLOAD_IMG_FILE_FAIL(30000, "图片上传失败"),
+
+    ADD_SHIPPING_FAIL(40000, "新增收货地址失败"),
+    DEL_SHIPPING_FAIL(40001, "删除收货地址失败"),
+    UPDATE_SHIPPING_FAIL(40003, "更新收货地址失败"),
+    SHIPPING_NOT_EXISTS(40004, "收货地址不存在");
 
     private int code;
     private String message;

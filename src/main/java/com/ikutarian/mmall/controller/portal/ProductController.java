@@ -36,6 +36,6 @@ public class ProductController {
                                @RequestParam(value = "pageNum", defaultValue = Const.Page.DEFAULT_PAGE_NUM) int pageNum,
                                @RequestParam(value = "pageSize", defaultValue = Const.Page.DEFAULT_PAGE_SIZE) int pageSize,
                                @RequestParam(value = "orderBy", defaultValue = "") String orderBy) {
-        return productService.getProductByKeywordOrCategory(keyword, categoryId, pageNum, pageSize);
+        return null;
     }
 }

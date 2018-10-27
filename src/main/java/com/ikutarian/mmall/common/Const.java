@@ -117,4 +117,9 @@ public class Const {
     public static final class ProducutListOrderBy {
         public static final Set<String> PRICE_ASC_DESC = Sets.newHashSet("price_desc", "price_asc");
     }
+
+    public static final class Cart {
+        public static final String LIMIT_NUM_FAIL = "LIMIT_NUM_FAIL";
+        public static final String LIMIT_NUM_SUCCESS = "LIMIT_NUM_SUCCESS";
+    }
 }
