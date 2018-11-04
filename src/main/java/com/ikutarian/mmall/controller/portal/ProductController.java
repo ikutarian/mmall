@@ -28,6 +28,10 @@ public class ProductController {
 
     /**
      * 商品列表
+     *
+     * keyword
+     * categoryId
+     * orderBy
      */
     @GetMapping("list.do")
     @ResponseBody
@@ -36,6 +40,6 @@ public class ProductController {
                                @RequestParam(value = "pageNum", defaultValue = Const.Page.DEFAULT_PAGE_NUM) int pageNum,
                                @RequestParam(value = "pageSize", defaultValue = Const.Page.DEFAULT_PAGE_SIZE) int pageSize,
                                @RequestParam(value = "orderBy", defaultValue = "") String orderBy) {
-        return null;
+        return productService.getProductByKeywordAndCategory(keyword, categoryId, pageNum, pageSize, orderBy);
     }
 }

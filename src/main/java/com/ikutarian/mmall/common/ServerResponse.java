@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class ServerResponse {
 
     // TODO 用泛型会更好吗？因为大量的createBySuccessMsg类似的方法，真的太丑了
+    // TODO 我觉得还是用泛型好一点
 
     private int code;
     private String msg;

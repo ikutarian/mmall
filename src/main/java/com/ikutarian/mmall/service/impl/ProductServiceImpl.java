@@ -101,6 +101,9 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
+    /**
+     * Product -> ProductDetailVo
+     */
     private ProductDetailVo assembleProductDetailVo(Product product) {
         ProductDetailVo vo = new ProductDetailVo();
         BeanUtils.copyProperties(product, vo);
@@ -108,11 +111,7 @@ public class ProductServiceImpl implements ProductService {
         vo.setImageHost(Config.getImageServerHost());
 
         Category category = categoryMapper.selectByPrimaryKey(product.getCategoryId());
-        if (category == null) {
-            vo.setParentCategoryId(Integer.valueOf(Const.Category.ROOT_CATEGORY_ID));  // 默认根节点
-        } else {
-            vo.setParentCategoryId(category.getParentId());
-        }
+        vo.setParentCategoryId(category.getParentId());
 
         return vo;
     }
@@ -136,7 +135,7 @@ public class ProductServiceImpl implements ProductService {
     public ServerResponse search(String productName, Integer productId, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
 
-        List<Product> productList = productMapper.getProductListByIdOrName(productName, productId);
+        List<Product> productList = productMapper.getProductListByIdAndName(productName, productId);
         List<ProductListVo> voList = Lists.newArrayList();
         for (Product product : productList) {
             ProductListVo vo = assembleProductListVo(product);
@@ -147,6 +146,9 @@ public class ProductServiceImpl implements ProductService {
         return ServerResponse.createBySuccessData(pageInfo);
     }
 
+    /**
+     * Product -> ProductListVo
+     */
     private ProductListVo assembleProductListVo(Product product) {
         ProductListVo vo = new ProductListVo();
         BeanUtils.copyProperties(product, vo);
@@ -164,6 +166,7 @@ public class ProductServiceImpl implements ProductService {
             return ServerResponse.createByError(ResponseCode.PRODUCT_NOT_EXISTS);
         } else {
             if (product.getStatus() != Const.ProductStatus.ON_SALE) {
+                // 未上架的商品不让返回给前端
                 return ServerResponse.createByError(ResponseCode.PRODUCT_NOT_ON_SALE);
             } else {
                 return ServerResponse.createBySuccessData(assembleProductDetailVo(product));
@@ -172,11 +175,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ServerResponse getProductByKeywordOrCategory(String keyword, Integer categoryId, int pageNum, int pageSize, String orderBy) {
-        // TODO 这个方法没有写完
-        if (StringUtils.isBlank(keyword) && categoryId == null) {
+    public ServerResponse getProductByKeywordAndCategory(String keyword, Integer categoryId,
+                                                         int pageNum, int pageSize, String orderBy) {
+        if (StringUtils.isBlank(keyword) && categoryId == null) {  // keyword 和 categoryId 至少一个有值
             return ServerResponse.createByError(ResponseCode.ILLEGAL_ARGUMENT);
         }
+
+        List<Integer> categoryIdList = Lists.newArrayList();
 
         if (categoryId != null) {
             Category category = categoryMapper.selectByPrimaryKey(categoryId);
@@ -188,11 +193,14 @@ public class ProductServiceImpl implements ProductService {
                 return ServerResponse.createBySuccessData(pageInfo);
             }
 
-            List<Integer> categoryIdList = (List<Integer>) categoryService.getCategoryAndChildrenById(categoryId).getData();
+            // categoryId 下的所有子分类。比如 categoryId 是电子产品，那么就要把 手机、手机下的智能机、手机下的非智能机...等类似的所有子分类都拿出来
+            categoryIdList = (List<Integer>) categoryService.getCategoryAndChildrenById(categoryId).getData();
         }
 
-        // 排序处理
+
         PageHelper.startPage(pageNum, pageSize);
+
+        // 排序处理
         if (StringUtils.isNotBlank(orderBy)) {
             if (Const.ProducutListOrderBy.PRICE_ASC_DESC.contains(orderBy)) {
                 String[] orderByArray = orderBy.split("_");
@@ -200,6 +208,14 @@ public class ProductServiceImpl implements ProductService {
             }
         }
 
-        return null;
+        // 开始查询数据库了
+        List<Product> productList = productMapper.getNameAndCategoryIds(keyword, categoryIdList);
+        List<ProductListVo> voList = Lists.newArrayList();
+        for (Product product : productList) {
+            ProductListVo vo = assembleProductListVo(product);
+            voList.add(vo);
+        }
+        PageInfo<ProductListVo> pageInfo = new PageInfo<>(voList);
+        return ServerResponse.createBySuccessData(pageInfo);
     }
 }

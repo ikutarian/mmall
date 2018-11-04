@@ -180,7 +180,7 @@
         from mmall_product
         order by id asc;
     </select>
-    <select id="getProductListByIdOrName" parameterType="map" resultMap="BaseResultMap">
+    <select id="getProductListByIdAndName" parameterType="map" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from mmall_product
@@ -189,11 +189,11 @@
                 name like CONCAT('%', trim(#{productName}), '%')
             </if>
             <if test="productId != null">
-                id = #{productId}
+                and id = #{productId}
             </if>
         </where>
     </select>
-    <select id="getProductListByNameOrCategoryId" parameterType="map" resultMap="BaseResultMap">
+    <select id="getNameAndCategoryIds" parameterType="map" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from mmall_product
@@ -201,8 +201,8 @@
             <if test="@com.ikutarian.mmall.util.MybatisUtils@isNotBlank(productName)">
                 name like CONCAT('%', trim(#{productName}), '%')
             </if>
-            <if test="categoryIdList != null and categoryIdList.size() > 0">
-                category_id in
+            <if test="@com.ikutarian.mmall.util.MybatisUtils@isNotEmpty(categoryIdList)">
+                and category_id in
                 <foreach collection="categoryIdList" item="item" index="index" open="(" separator="," close=")">
                     #{item}
                 </foreach>

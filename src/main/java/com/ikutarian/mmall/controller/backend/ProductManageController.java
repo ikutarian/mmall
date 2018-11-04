@@ -104,7 +104,7 @@ public class ProductManageController {
     /**
      * 商品列表
      */
-    @PostMapping("list.do")
+    @GetMapping("list.do")
     @ResponseBody
     public ServerResponse list(HttpSession session,
                                @RequestParam(value = "pageNum", defaultValue = Const.Page.DEFAULT_PAGE_NUM) int pageNum,
@@ -124,9 +124,9 @@ public class ProductManageController {
     /**
      * 商品搜索
      *
-     * 可根据id或者name进行搜索
+     * 可根据id和name进行搜索
      */
-    @PostMapping("search.do")
+    @GetMapping("search.do")
     @ResponseBody
     public ServerResponse search(HttpSession session,
                                  String productName,
